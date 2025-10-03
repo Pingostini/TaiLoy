@@ -1,0 +1,267 @@
+/* Variables de Color (para mantener la consistencia con Recepción) */
+:root {
+    --color-dark-green: #14532d; /* Verde Oscuro (Sidebar) */
+    --color-light-green: #4ade80; /* Verde Claro (Botones/Activo) */
+    --color-text-white: #ffffff;
+    --color-bg-light: #f4f6f9; /* Fondo principal */
+    --color-border-light: #e0e0e0;
+    --color-info: #3b82f6; /* Azul para mensajes de información */
+    --color-error: #ef4444; /* Rojo para errores */
+}
+
+/* Base y Layout Principal */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg-light);
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar (Estilos copiados de recepcion.css) */
+.sidebar {
+    width: 250px;
+    background: var(--color-dark-green);
+    color: var(--color-text-white);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para empujar "Cerrar Sesión" abajo */
+}
+
+.logo-area {
+    padding: 20px 20px 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 30px; 
+    height: 30px;
+    margin-right: 10px;
+}
+
+.system-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user-info {
+    font-size: 12px;
+    padding: 0 20px 10px 20px;
+    opacity: 0.7;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu {
+    padding-top: 20px;
+    flex-grow: 1;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--color-text-white);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin: 5px 0;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.1); 
+    border-left: 3px solid var(--color-light-green);
+    padding-left: 17px;
+}
+
+.logout-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Contenido Principal */
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+/* Encabezado (Header) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.main-title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.subtitle {
+    margin: 0;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.user-profile {
+    padding: 8px 15px;
+    background-color: var(--color-text-white);
+    border: 1px solid var(--color-border-light);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-dark-green);
+}
+
+/* --- Layout del Workspace (Dividir en dos columnas) --- */
+.scan-workspace {
+    display: flex;
+    gap: 30px; /* Espacio entre las dos columnas */
+    align-items: flex-start; /* Asegura que las tarjetas empiecen arriba */
+}
+
+/* Estilo Base para las Tarjetas */
+.scanner-card, .history-card {
+    background: var(--color-text-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+/* Tarjeta del Escáner (Izquierda) */
+.scanner-card {
+    flex: 1 1 40%; /* Ocupa un 40% del espacio, permitiendo que la derecha ocupe más */
+    max-width: 450px;
+}
+
+.card-header h2 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.card-header p {
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.tip-text {
+    font-size: 12px;
+    color: var(--color-dark-green);
+    opacity: 0.8;
+    border-left: 3px solid var(--color-light-green);
+    padding-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.scan-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#scan-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--color-border-light);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Botones */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--color-light-green);
+    color: var(--color-dark-green);
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid var(--color-border-light);
+}
+
+/* Mensajes de feedback */
+.message-area {
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    display: none; /* Oculto por defecto, JS lo mostrará */
+}
+
+.message-success {
+    background-color: #d1fae5; /* Verde muy claro */
+    color: var(--color-dark-green);
+}
+
+.message-error {
+    background-color: #fee2e2; /* Rojo muy claro */
+    color: var(--color-error);
+}
+
+/* Tarjeta de Historial (Derecha) */
+.history-card {
+    flex: 1 1 60%; /* Ocupa el 60% restante */
+}
+
+.history-card .card-header p {
+    margin-bottom: 15px;
+}
+
+/* Estilos de la Tabla */
+.table-container {
+    margin-bottom: 15px;
+    max-height: 400px; /* Limitar altura para que sea desplazable si hay muchos registros */
+    overflow-y: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.data-table th,
+.data-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-border-light);
+    font-size: 14px;
+}
+
+.data-table th {
+    background-color: #fafafa;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    position: sticky; /* Fija los encabezados al hacer scroll */
+    top: 0;
+}
+
+.action-remove {
+    color: var(--color-error);
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+}

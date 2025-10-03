@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recepción | Tai Loy Logistics System</title>
+    <link rel="stylesheet" href="/style/recepcion.css">
+</head>
+<body>
+    
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <img src="../img/tai-loy-logo-png_seeklogo-257817.png" alt="Tai Loy Logo" class="logo">
+                <span class="system-name">Logistics System</span>
+            </div>
+            
+            <div class="user-info">
+                OPERARIO RECEPCIÓN
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="home.html" class="nav-item"><i class="icon-dashboard"></i>Dashboard</a></li>
+                    <li><a href="recepcion.html" class="nav-item active"><i class="icon-recepcion"></i>Recepción</a></li>
+                    <li><a href="escaner.html" class="nav-item"><i class="icon-escanear"></i>Escanear</a></li>
+                    <li><a href="incidencia.html" class="nav-item"><i class="icon-incidencias"></i>Incidencias</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header class="header">
+                <div class="welcome-area">
+                    <h1 class="main-title">Recepción</h1>
+                    <p class="subtitle">Bienvenido, Operario Recepción</p>
+                </div>
+                <div class="user-profile">
+                    <span class="profile-name">Operario de Recepción</span>
+                    </div>
+            </header>
+
+            <div class="receptions-card">
+                <div class="card-header">
+                    <h2>Recepciones</h2>
+                    <p>Crear y gestionar recepciones</p>
+                </div>
+                
+                <div class="controls-bar">
+                    <button id="btn-nueva-recepcion" class="btn btn-primary">Nueva Recepción</button>
+                    <button id="btn-refrescar" class="btn btn-secondary">Refrescar</button>
+                </div>
+
+                <div class="filter-bar">
+                    <input type="text" id="input-search" placeholder="Buscar por orden, proveedor o SKU">
+                    <select id="select-status">
+                        <option value="todos">Todos</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="completada">Completada</option>
+                    </select>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Orden</th>
+                                <th>Proveedor</th>
+                                <th>Fecha</th>
+                                <th>Items</th>
+                                <th>Estado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reception-table-body">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/recepcion.js"></script>
+
+</body>
+</html>

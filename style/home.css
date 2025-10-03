@@ -1,0 +1,382 @@
+/* ================================================= */
+/* 0. VARIABLES Y BASE */
+/* ================================================= */
+:root {
+    /* Colores primarios de Tai Loy/Logística */
+    --color-primary: #0b4336; /* Verde oscuro del sidebar */
+    --color-accent: #0f9d58; /* Verde claro/acento (original) */
+    --color-secondary: #10b981; /* Verde más brillante (completado) */
+    --color-bg-light: #f4f6fb; /* Fondo principal (azul muy claro) */
+    --color-card: #fff;       /* Fondo de tarjetas */
+    --color-text-dark: #0f1724; /* Texto principal */
+    --color-text-muted: #6b7280; /* Texto secundario */
+    --color-pending: #f59e0b; /* Amarillo/Naranja para Pendiente/Abierto */
+    --color-error: #ef4444; /* Rojo para Incidencia */
+}
+
+/* Base global */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-bg-light);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Contenedor principal para toda la aplicación */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ================================================= */
+/* 1. SIDEBAR (Navegación) */
+/* ================================================= */
+.sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, var(--color-primary), #08342b);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.logo-section {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-weight: 700;
+    font-size: 18px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-section img.logo {
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+}
+
+.system-name {
+    display: block;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+.user-role-title {
+    margin-top: 15px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.95);
+    padding: 8px 0;
+    font-weight: 600;
+}
+
+.main-nav {
+    flex: 1;
+    margin-top: 6px;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0;
+}
+
+.nav-item {
+    margin-bottom: 6px;
+}
+
+.nav-item a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    color: #e6f7ef; /* Verde muy claro */
+    transition: background-color 0.2s;
+}
+
+.nav-item a i {
+    width: 20px;
+    text-align: center;
+}
+
+.nav-item a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.nav-item.active a {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    font-weight: 600;
+}
+
+.logout-section {
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout-section a {
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    color: #ffdede; /* Rojo claro */
+    background: transparent;
+    transition: background-color 0.2s;
+}
+
+.logout-section a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ================================================= */
+/* 2. MAIN CONTENT & HEADER */
+/* ================================================= */
+.main-content {
+    flex: 1;
+    padding: 22px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.dashboard-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.welcome-text {
+    margin: 4px 0;
+    color: var(--color-text-muted);
+    font-size: 15px;
+}
+
+.current-user-role {
+    background: var(--color-card);
+    padding: 8px 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(10, 10, 10, 0.04);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* ================================================= */
+/* 3. CARDS Y PANELES (Dashboard) */
+/* ================================================= */
+.panel {
+    background: var(--color-card);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+    height: 100%;
+}
+
+.panel h2 {
+    margin: 0 0 5px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.panel-subtitle {
+    margin: 0 0 15px;
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+/* Dashboard Metrics Grid (Métricas) */
+.metrics-grid {
+    gap: 16px; 
+    margin-top: 18px;
+}
+
+.metric-card {
+    background: var(--color-card);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    border-left: 5px solid var(--color-secondary); 
+    height: 100%;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 14px;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.card-header i {
+    opacity: 0.7;
+    font-size: 18px;
+    color: var(--color-secondary);
+}
+
+.main-value {
+    font-size: 24px;
+    margin: 8px 0;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.trend-detail {
+    color: var(--color-text-muted);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ================================================= */
+/* 4. BOTTOM PANELS (Actividades y Accesos Rápidos) */
+/* ================================================= */
+.bottom-panels-grid {
+    gap: 16px;
+    margin-top: 20px;
+}
+
+/* Actividades Recientes */
+.activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activity-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eef2f6;
+    align-items: flex-start;
+}
+
+.activity-item:last-child {
+    border-bottom: 0;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    align-self: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+/* Clases de colores para el log de actividad */
+.completed-dot { background-color: var(--color-secondary); } /* Verde */
+.reported-dot { background-color: var(--color-pending); } /* Amarillo */
+.updated-dot { background-color: #3b82f6; } /* Azul */
+
+.activity-detail {
+    flex-grow: 1;
+}
+
+.activity-detail p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.activity-time {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+    display: block;
+}
+
+/* Accesos Rápidos */
+.quick-access-panel {
+    /* Ajuste para mantener la coherencia visual con la imagen */
+    padding: 20px;
+}
+
+.access-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 10px;
+}
+
+.quick-link {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #f3faf4, #fff);
+    color: var(--color-primary);
+    border: 1px solid rgba(11, 110, 79, 0.1);
+    transition: all 0.2s ease;
+}
+
+.quick-link:hover {
+    background: #e6f7ef;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(11, 110, 79, 0.1);
+}
+
+.quick-link i {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: rgba(11, 110, 79, 0.1);
+    color: var(--color-primary);
+    font-size: 16px;
+}
+
+/* ================================================= */
+/* 5. OTROS ESTILOS (Compartidos con otras vistas) */
+/* ================================================= */
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+}
+
+.status-badge.completada, .status-badge.cerrado {
+    background-color: #e6ffec;
+    color: var(--color-secondary);
+}
+.status-badge.pendiente, .status-badge.abierto {
+    background-color: #fff9e6;
+    color: var(--color-pending);
+}
+.status-badge.alta {
+    background-color: #fee2e2;
+    color: var(--color-error);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none; 
+    }
+}

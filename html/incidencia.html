@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incidencias | Tai Loy Logistics System</title>
+    <link rel="stylesheet" href="/style/incidencia.css">
+</head>
+<body>
+    
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <img src="/img/tai-loy-logo-png_seeklogo-257817.png" alt="Tai Loy Logo" class="logo">
+                <span class="system-name">Logistics System</span>
+            </div>
+            
+            <div class="user-info">
+                OPERARIO RECEPCIÓN
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="home.html" class="nav-item"><i class="icon-dashboard"></i>Dashboard</a></li>
+                    <li><a href="recepcion.html" class="nav-item"><i class="icon-recepcion"></i>Recepción</a></li>
+                    <li><a href="escaner.html" class="nav-item"><i class="icon-escanear"></i>Escanear</a></li>
+                    <li><a href="incidencia.html" class="nav-item active"><i class="icon-incidencias"></i>Incidencias</a></li>
+                </ul>
+            </nav>
+            <div class="logout-section">
+                <a href="#" class="nav-item"><i class="icon-logout"></i>Cerrar Sesión</a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="header">
+                <div class="welcome-area">
+                    <h1 class="main-title">Incidencias</h1>
+                    <p class="subtitle">Bienvenido, Operario Recepción</p>
+                </div>
+                <div class="user-profile">
+                    <span class="profile-name">Operario de Recepción</span>
+                </div>
+            </header>
+
+            <div class="incidences-workspace">
+                
+                <div class="report-card">
+                    <div class="card-header">
+                        <h2>Reportar Nueva Incidencia</h2>
+                        <p>Completa el formulario para registrar un problema en la recepción.</p>
+                    </div>
+                    
+                    <form id="incident-form" class="incident-form">
+                        <label for="incident-title">Título Corto:</label>
+                        <input type="text" id="incident-title" placeholder="Ej: Producto dañado" required>
+                        
+                        <label for="incident-order">Orden/Recepción Afectada:</label>
+                        <input type="text" id="incident-order" placeholder="Ej: ORD-2025-110" required>
+                        
+                        <label for="incident-description">Descripción Detallada:</label>
+                        <textarea id="incident-description" placeholder="Detalla el problema (Ej: Caja golpeada en transporte)" rows="4" required></textarea>
+                        
+                        <label for="incident-priority">Prioridad:</label>
+                        <select id="incident-priority" required>
+                            <option value="baja">Baja</option>
+                            <option value="media">Media</option>
+                            <option value="alta">Alta</option>
+                        </select>
+
+                        <button type="submit" class="btn btn-primary">Crear Incidencia</button>
+                    </form>
+                    
+                    <div id="form-message" class="message-area"></div>
+                </div>
+
+                <div class="list-card">
+                    <div class="card-header">
+                        <h2>Lista de Incidencias</h2>
+                        <p>Lista de incidencias reportadas (activas e históricas)</p>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Título</th>
+                                    <th>Descripción</th>
+                                    <th>Estado</th>
+                                    <th>Prioridad</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody id="incidences-table-body">
+                                </tbody>
+                        </table>
+                    </div>
+                    <button id="show-closed-btn" class="btn btn-secondary">Mostrar Cerradas</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/incidencia.js"></script>
+
+</body>
+</html>

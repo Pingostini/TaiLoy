@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escanear | Tai Loy Logistics System</title>
+    <link rel="stylesheet" href="/style/escaner.css">
+</head>
+<body>
+    
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <img src="/img/tai-loy-logo-png_seeklogo-257817.png" alt="Tai Loy Logo" class="logo">
+                <span class="system-name">Logistics System</span>
+            </div>
+            
+            <div class="user-info">
+                OPERARIO RECEPCIÓN
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="home.html" class="nav-item"><i class="icon-dashboard"></i>Dashboard</a></li>
+                    <li><a href="recepcion.html" class="nav-item"><i class="icon-recepcion"></i>Recepción</a></li>
+                    <li><a href="escaner.html" class="nav-item active"><i class="icon-escanear"></i>Escanear</a></li>
+                    <li><a href="incidencia.html" class="nav-item"><i class="icon-incidencias"></i>Incidencias</a></li>
+                </ul>
+            </nav>
+            <div class="logout-section">
+                <a href="#" class="nav-item"><i class="icon-logout"></i>Cerrar Sesión</a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="header">
+                <div class="welcome-area">
+                    <h1 class="main-title">Escanear</h1>
+                    <p class="subtitle">Bienvenido, Operario Recepción</p>
+                </div>
+                <div class="user-profile">
+                    <span class="profile-name">Operario de Recepción</span>
+                </div>
+            </header>
+
+            <div class="scan-workspace">
+                
+                <div class="scanner-card">
+                    <div class="card-header">
+                        <h2>Escanear</h2>
+                        <p>Simulador de escaneo (ingresa código o usa entrada rápida)</p>
+                        <p class="tip-text">Consejo: esto simula el escaneo. Para integración real se puede conectar una API de scanner o la cámara.</p>
+                    </div>
+                    
+                    <form id="scan-form" class="scan-form">
+                        <input type="text" id="scan-input" placeholder="Ingrese código / SKU / Orden" required>
+                        <button type="submit" class="btn btn-primary">Agregar Recepción</button>
+                    </form>
+
+                    <div id="scan-message" class="message-area"></div>
+                </div>
+
+                <div class="history-card">
+                    <div class="card-header">
+                        <h2>Historial de Escaneo</h2>
+                        <p>Registro de los últimos códigos escaneados/ingresados</p>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Tipo</th>
+                                    <th>Hora</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody id="scan-history-body">
+                                </tbody>
+                        </table>
+                    </div>
+                    <button id="clear-history-btn" class="btn btn-secondary">Limpiar Historial</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/escaner.js"></script>
+
+</body>
+</html>
